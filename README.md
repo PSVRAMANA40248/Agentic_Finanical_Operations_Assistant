@@ -14,52 +14,8 @@ Financial institutions use disconnected tools (Zendesk CRM, Stripe/Razorpay Paym
 ## 🏗️ Architecture & Multi-Agent Topology
 
 ```
-                  ┌──────────────────────────────────────────────┐
-                  │    Incoming Support Ticket / Webhook         │
-                  └──────────────────────┬───────────────────────┘
-                                         │
-                                         ▼
-                  ┌──────────────────────────────────────────────┐
-                  │ 1. Privacy Gateway (PiiRedactorService)     │
-                  │    Sanitizes Aadhaar, PAN, Cards, Phone     │
-                  └──────────────────────┬───────────────────────┘
-                                         │
-                                         ▼
-                  ┌──────────────────────────────────────────────┐
-                  │ 2. Router Agent                              │
-                  │    Classifies Intent & Selects Domain Agents │
-                  └──────┬───────────────┼───────────────┬───────┘
-                         │               │               │
-                         ▼               ▼               ▼
-                  ┌────────────┐  ┌─────────────┐  ┌─────────────┐
-                  │ Support    │  │ Payments    │  │ Fraud       │
-                  │ Agent      │  │ Agent       │  │ Agent       │
-                  └──────┬─────┘  └──────┬──────┘  └──────┬──────┘
-                         │               │                │
-                         └───────────────┼────────────────┘
-                                         │
-                                         ▼
-                  ┌──────────────────────────────────────────────┐
-                  │ 3. Supervisor Agent (Self-Correction Audit)  │
-                  │    Evaluates Policy Rules & Safety Limits    │
-                  └──────────────────────┬───────────────────────┘
-                                         │
-                                   Risk Check
-                                   ┌─────┴─────┐
-                     Low Risk (< ₹5k)          High Risk (>= ₹5k / Fraud)
-                           │                         │
-                           ▼                         ▼
-                  ┌─────────────────┐       ┌──────────────────┐
-                  │ Auto-Resolution │       │ Human Approval   │
-                  │ Gateway Refund  │       │ Manager Inbox    │
-                  └────────┬────────┘       └────────┬─────────┘
-                           │                         │
-                           └────────────┬────────────┘
-                                        │
-                                        ▼
-                  ┌──────────────────────────────────────────────┐
-                  │ 4. Plain-Language Audit & Cost Ledger        │
-                  └──────────────────────────────────────────────┘
+      
+          
 ```
 
 ---
