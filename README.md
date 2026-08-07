@@ -13,7 +13,7 @@ Financial institutions use disconnected tools (Zendesk CRM, Stripe/Razorpay Paym
 
 ## 🏗️ Architecture & Multi-Agent Topology
 
-
+<img src="https://raw.githubusercontent.com/PSVRAMANA40248/Agentic_Finanical_Operations_Assistant/main/imgggg.jpeg" alt="Architecture Diagram" width="900"/>
       
   
           
